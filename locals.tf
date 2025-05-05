@@ -14,6 +14,8 @@ locals {
   vpc_id      = data.terraform_remote_state.infra.outputs.vpc_id
   pub_sub_sg = data.terraform_remote_state.infra.outputs.pub_sub_sg
   ecs_sub_sg = data.terraform_remote_state.infra.outputs.ecs_sub_sg
+  alb_sg     = data.terraform_remote_state.infra.outputs.alb_sg
+  alb_access_log_bucket = data.terraform_remote_state.infra.outputs.alb_access_log_bucket
 
   private_subnet_a = data.terraform_remote_state.infra.outputs.app_priv_sub_1
   private_subnet_b = data.terraform_remote_state.infra.outputs.app_priv_sub_2

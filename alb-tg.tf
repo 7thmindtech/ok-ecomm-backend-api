@@ -3,7 +3,7 @@ resource "aws_lb_target_group" "ok-ecomm-tg" {
   port        = 80
   protocol    = "HTTP" # Change to HTTPS when certificate is available
   target_type = "ip"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = local.vpc_id
 
 health_check {
     path                = "/docs"

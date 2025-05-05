@@ -26,7 +26,7 @@ terraform {
     bucket         = "ok-terraform-remote-state-bucket" 
     dynamodb_table = "ok-terraform-locks"        
     region         = "eu-west-1"
-    key            = "ok-ecomm-app-backend/${var.env}/terraform.tfstate"
+    key            = "ok-ecomm-app-backend/{{ENV}}/terraform.tfstate"
     kms_key_id     = "arn:aws:kms:eu-west-1:038462750799:key/cd726a7f-456b-444a-86e5-880b261180b2" 
   }
 }

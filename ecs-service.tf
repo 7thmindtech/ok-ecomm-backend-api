@@ -16,5 +16,5 @@ module "ok_ecomm_backend_serivce" {
     container_name = module.ok_ecomm_backend_taskdef.container_name
 
     tags = merge(local.tags, tomap({ "Name" = "${var.cust_name}-${var.ecs_family}-ecs-service-${var.env}" }))
-    depends_on = [module.ok_ecs_cluster, module.ok_ecomm_backend_taskdef]
+    depends_on = [module.ok_backend_ecs_cluster, module.ok_ecomm_backend_taskdef]
 }
