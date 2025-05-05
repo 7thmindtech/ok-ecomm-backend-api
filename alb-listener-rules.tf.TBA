@@ -1,0 +1,21 @@
+
+resource "aws_lb_listener_rule" "ok_ecomm_ip_rule" {
+  listener_arn = aws_lb_listener.alb-listner_80.arn
+  priority     = 2
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.ok-ecomm-tg.arn
+  }
+
+  condition {
+    host_header {
+      values = ["${var.ok_ecomm_cust_domain_name}"]
+    }
+  }
+  lifecycle {
+  ignore_changes = [action] # Allow external changes to happen without Terraform conflicts, particularly around target group.
+  }
+
+  tags = merge(local.tags, tomap({ "Name" = "${var.cust_name}-ecomm-rule" }))
+}

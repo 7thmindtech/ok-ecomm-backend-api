@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify your email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color:white;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #7c3aed;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .button:hover {
+            background-color: #6d28d9;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Okyke!</h1>
+    <p>Please click the button below to verify your email address:</p>
+    <p>
+        <a href="{{ verification_url }}" class="button">Verify Email</a>
+    </p>
+    <p>Or copy and paste this URL into your browser:</p>
+    <p style="word-break: break-all;">{{ verification_url }}</p>
+    <div class="footer">
+        <p>If you didn't create an account with us, you can safely ignore this email.</p>
+        <p>The verification link will expire in 24 hours.</p>
+    </div>
+</body>
+</html> 

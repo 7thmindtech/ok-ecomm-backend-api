@@ -1,0 +1,31 @@
+# Default Agent Instructions for Cursor
+
+## Consistency & Styling
+- **Preserve Existing Styling and Design:**  
+  Always maintain the current UI components, design patterns, and code formatting. Any new code must integrate seamlessly with the existing design.
+- **Maintain Code Consistency:**  
+  Ensure that variable naming, function definitions, and overall code structure align with the current codebase. Avoid introducing style or formatting changes unless explicitly requested.
+
+## Code Integrity & Architecture
+- **Do Not Duplicate or Reuse Code:**  
+  Reuse existing components and modules wherever possible. Do not create duplicate code files; instead, integrate new functionality into the existing code.
+- **Maintain Existing Directory Structure:**  
+  Always integrate new code into the current directory hierarchy. Do not recreate, duplicate, or reorganize existing directories or folder structures.
+- **Preserve Existing Features:**  
+  Do not alter or break current features or functionalities. Validate any changes against the current behavior of the application.
+
+## Code Quality & Documentation
+- **Clean and Readable Code:**  
+  Generate code that is clear, concise, and well-structured. Follow best practices for readability and maintainability.
+- **Well-Commented:**  
+  Include meaningful comments and docstrings that explain the purpose and logic behind code blocks. Comments should clarify why a piece of code exists and how it fits into the overall system.
+- **Scalable and Secure:**  
+  Write code that is scalable, robust in error handling, and adheres to security best practices (e.g., proper input validation and avoiding hardcoded sensitive data).
+
+## Agent Behavior Guidelines
+- **Non-Invasive Modifications:**  
+  Limit changes to only what is necessary. Always assess the current code context before applying modifications.
+- **Alignment with Architecture:**  
+  Follow the project's established architectural guidelines and design patterns. When refactoring or generating new code, ensure it fits seamlessly within the existing structure.
+- **Verification Before Application:**  
+  Confirm that any automated changes have been thoroughly reviewed to ensure they do not disrupt existing functionalities.

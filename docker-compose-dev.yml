@@ -1,0 +1,16 @@
+# used to run postgres in docker instead of local machine during development
+version: '3.8'
+
+volumes:
+  app_data:
+
+services:
+  app: 
+    build: .
+    image: okykebackendaws
+    container_name: backendcontainer
+    ports:
+    - "8080:8080"
+    volumes:
+    - app_data:/app_data
+  
