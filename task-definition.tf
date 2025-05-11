@@ -36,26 +36,26 @@ module "ok_ecomm_backend_taskdef" {
 
     custom_policy_document = <<EOF
     {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject"
-            ],
-            "Resource": "*"
-            },
-            {
-            "Effect": "Allow",
-            "Action": [
-                "application-autoscaling:*",
-                "cloudwatch:*",
-                "ecs:*"
-            ],
-            "Resource": "*"
-            }
-        ]
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Action": [
+    "s3:GetObject",
+    "s3:PutObject"
+    ],
+    "Resource": "*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+    "application-autoscaling:*",
+    "cloudwatch:*",
+    "ecs:*"
+    ],
+    "Resource": "*"
+    }
+    ]
     }
     EOF
 }
