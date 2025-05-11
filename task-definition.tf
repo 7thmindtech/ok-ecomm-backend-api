@@ -43,18 +43,18 @@ module "ok_ecomm_backend_taskdef" {
                 "Action": [
                     "s3:GetObject",
                     "s3:PutObject"
-                    ],
+                ],
                 "Resource": "*"
             },
             {
-            "Action": [
-            "application-autoscaling:*",
-            "cloudwatch:*",
-            "ecs:*"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        }
+                "Effect": "Allow",
+                "Action": [
+                "application-autoscaling:*",
+                "cloudwatch:*",
+                "ecs:*"
+                ],
+                "Resource": "*"
+            }
         ]
     }
     EOF
