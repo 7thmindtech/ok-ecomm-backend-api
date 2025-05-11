@@ -3,7 +3,7 @@ provider "aws" {
   region = var.region
   assume_role {
     # role_arn = var.DEPLOY_ROLE
-    role_arn = "arn:aws:iam::${var.account_id}:role/${var.deploy_role}"
+    role_arn = "${var.deploy_role}"
   }
 }
 
@@ -11,7 +11,7 @@ provider "aws" {
   alias = "prod"
   region = var.region
   assume_role {
-    role_arn = "arn:aws:iam::${var.account_id}:role/${var.deploy_role}"
+    role_arn = "${var.deploy_role}"
   }
 }
 
