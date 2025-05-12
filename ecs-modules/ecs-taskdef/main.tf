@@ -36,7 +36,28 @@ EOF
 resource "aws_iam_role_policy" "custom-policy" {
   name   = "${var.ecs_family}-${var.env}-ecs-role-policy"
   role   = aws_iam_role.ecs_task_role.id
-  policy = var.custom_policy_document
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+      {
+        Action = [
+          "application-autoscaling:*",
+          "cloudwatch:*",
+          "ecs:*"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      }
+    ]
+  })
 }
 
 
