@@ -4,6 +4,6 @@ output "cluster_arn" {
 }
 
 output "cluster_name" {
-    value       = aws_ecs_cluster.ok_ecs_cluster.id
+    value       = aws_ecs_cluster.ok_ecs_cluster.name
     description = "cluster name"
 }

@@ -47,7 +47,7 @@ variable "ecr_repo_name" {
   default = "ok-ecr-registry"
 }
 variable "ecs_cluster_name" {
-  default = "ecomm-backend-cluster"
+  default = "ecomm-backend"
 }
 
 variable "ecs_family" {

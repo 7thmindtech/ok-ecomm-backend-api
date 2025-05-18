@@ -19,7 +19,7 @@ resource "aws_codedeploy_deployment_group" "ok-codedeploy-deployment-group" {
   }
   
   ecs_service {
-    cluster_name = module.ok_backend_ecs_cluster.cluster_name
+    cluster_name = "${var.cust_name}-${var.ecs_cluster_name}-${var.env}-ecs-cluster"
     service_name = module.ok_ecomm_backend_serivce.ecs_service_name
   }
   
