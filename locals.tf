@@ -32,5 +32,7 @@ locals {
   pub_sub_c = data.terraform_remote_state.infra.outputs.pub_sub_3
   public_subnet_ids = [local.pub_sub_a,local.pub_sub_b,local.pub_sub_c]
 
+  ecr_repository_url = data.terraform_remote_state.infra.outputs.ok_backend_ecr_repo
+
 }
 # ##############

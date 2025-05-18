@@ -1,11 +1,11 @@
 resource "aws_lb_listener" "alb-listner_80" {
   load_balancer_arn = aws_lb.ok-alb.arn
-  port              = "80"
+  port              = "8080"
   protocol          = "HTTP"
 
   default_action {
     type             = "forward"
-    target_group_arn =  aws_lb_target_group.ok-ecomm-tg.arn
+    target_group_arn =  module.ok_ecomm_backend_tg_blue.ecs_target_group_arn
   }
 
   tags = merge(local.tags, tomap({ "Name" = "${var.cust_name}-${var.ecs_cluster_name}-listner-80" }))

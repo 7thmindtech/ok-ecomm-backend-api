@@ -11,7 +11,7 @@ resource "aws_ecs_service" "ecs_service" {
   load_balancer {
     target_group_arn = var.alb_target_group_arn
     container_name   = var.container_name
-    container_port   = "8000"
+    container_port   = "8080"
   }
 
   capacity_provider_strategy {
