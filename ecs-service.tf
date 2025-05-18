@@ -11,7 +11,7 @@ module "ok_ecomm_backend_serivce" {
     enable_execute_command = true
     alb_target_group_arn = module.ok_ecomm_backend_tg_blue.ecs_target_group_arn
     subnet_ids = local.private_subnet_ids # to be changed to private endpoint
-    security_groups = local.ecs_sub_sg # to be changed to private endpointu
+    security_groups = local.ecs_sub_sg # to be changed to private endpoint
     assign_public_ip = false
     container_name = module.ok_ecomm_backend_taskdef.container_name
 
