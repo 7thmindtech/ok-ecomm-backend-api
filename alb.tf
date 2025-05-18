@@ -14,8 +14,8 @@ resource "aws_lb" "ok-alb" {
   load_balancer_type = "application"
 
   access_logs {
-    bucket = local.alb_access_log_bucket # This is the bucket name where the logs will be stored. It must match the bucket policy.
-    prefix = "alb/" # This is the prefix for the logs in the S3 bucket. It must match the prefix in the bucket policy. (i.e whatever you set after the bucket name, just befor 'AWSLogs')
+    bucket = local.alb_access_log_bucket 
+    prefix = "alb" # This is the prefix for the logs in the S3 bucket. It must match the prefix in the bucket policy. (i.e whatever you set after the bucket name, just befor 'AWSLogs')
     enabled = true
   }
   enable_deletion_protection = false
