@@ -1,6 +1,6 @@
 
 resource "aws_codedeploy_app" "ok-codedeploy-app" {
-  name = "${var.cust_name}-${var.ecs_cluster_name}-${var.env}codedeploy-app"
+  name = "${var.cust_name}-${var.ecs_cluster_name}-${var.env}-codedeploy-app"
   compute_platform = "ECS"
 
   tags = merge(local.tags, tomap({ "Name" = "${var.cust_name}-${var.ecs_cluster_name}-${var.env}codedeploy-app" }))
@@ -52,7 +52,7 @@ resource "aws_codedeploy_deployment_group" "ok-codedeploy-deployment-group" {
         events  = ["DEPLOYMENT_FAILURE", "DEPLOYMENT_STOP_ON_ALARM"]
     }
 
-    tags = merge(local.tags, tomap({ "Name" = "${var.cust_name}-${var.ecs_cluster_name}-${var.env}codedeploy-deployment-group" }))
+    tags = merge(local.tags, tomap({ "Name" = "${var.cust_name}-${var.ecs_cluster_name}-${var.env}-codedeploy-deployment-group" }))
 }
 
 
@@ -75,6 +75,6 @@ resource "aws_iam_role" "codedeploy_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForECS"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
   role       = aws_iam_role.codedeploy_role.name
 }
