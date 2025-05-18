@@ -3,3 +3,7 @@ output "cluster_arn" {
     description = "cluster arn"
 }
 
+output "cluster_name" {
+    value       = aws_ecs_cluster.ok_ecs_cluster.id
+    description = "cluster name"
+}
