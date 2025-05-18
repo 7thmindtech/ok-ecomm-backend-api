@@ -1,13 +1,13 @@
 
 resource "aws_lb_target_group" "ok_ecs_tg" {
   name        = "${var.cust_name}-${var.ecs_family}-${var.env}-${var.stage_name}-${var.deployment_type}-tg"
-  port        = 8000
+  port        = 8080
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
   health_check {
     path                = var.health_path
-    port = "8000"
+    port = "8080"
     protocol            = "HTTP"
     healthy_threshold   = 5
     unhealthy_threshold = 2

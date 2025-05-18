@@ -12,13 +12,13 @@ module "ok_ecomm_backend_taskdef" {
     container_definitions = jsonencode([
         {
             "name" = "${var.cust_name}-${var.ecs_family}-${var.env}-${var.stage_name}",
-            "image" = "nginx:latest",
+            "image" = "${local.ecr_repository_url}:ecomm-backend-api-${var.env}-${var.stage_name}",
             "essential" = true,
             "portMappings" = [
                 {
                     "protocol"      = "tcp",
-                    "containerPort" = 80,
-                    "hostPort"      = 80
+                    "containerPort" = 8080,
+                    "hostPort"      = 8080
                 }
             ],
             "secrets" = local.ok_ecomm_backend_secrets,
@@ -33,29 +33,4 @@ module "ok_ecomm_backend_taskdef" {
             }
         }
     ])
-
-    custom_policy_document = <<EOF
-    {
-    "Version": "2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Action": [
-    "s3:GetObject",
-    "s3:PutObject"
-    ],
-    "Resource": "*"
-    },
-    {
-    "Effect": "Allow",
-    "Action": [
-    "application-autoscaling:*",
-    "cloudwatch:*",
-    "ecs:*"
-    ],
-    "Resource": "*"
-    }
-    ]
-    }
-    EOF
 }

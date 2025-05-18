@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "ok_ecs_cluster" {
-  name = "${var.cust_name}-${var.cluster_name}-ecs-cluster-${var.env}"
+  name = var.cluster_name
   setting {
     name  = "containerInsights"
     value = "enabled"
