@@ -92,9 +92,10 @@ resource "aws_iam_role_policy" "codedeploy_ecs_policy" {
           "ecs:DescribeTaskDefinition",
           "ecs:DescribeTasks",
           "ecs:ListTasks",
-          "elasticloadbalancing:DescribeTargetGroups",
-          "elasticloadbalancing:DescribeListeners",
-          "elasticloadbalancing:DescribeLoadBalancers"
+          "elasticloadbalancing:*",
+          "iam:PassRole",
+          "ec2:RunInstances",
+          "ec2:CreateTags"
         ],
         Resource = "*"
       }
