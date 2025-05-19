@@ -2,8 +2,8 @@
 
 # Wait for Postgres to be ready
 echo "Waiting for RDSpostgres..."
-# while ! echo > /dev/tcp/okyke.crwk2swcs1bq.eu-west-1.rds.amazonaws.com/5432 2>/dev/null; do
-while ! echo > /dev/tcp/postgres/5432 2>/dev/null; do
+#while ! echo > /dev/tcp/postgres/5432 2>/dev/null; do #use when running docerized postgres localy
+while ! echo > /dev/tcp/okyke.crwk2swcs1bq.eu-west-1.rds.amazonaws.com/5432 2>/dev/null; do
   sleep 1
 done
 
