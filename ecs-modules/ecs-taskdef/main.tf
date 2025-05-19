@@ -51,7 +51,12 @@ resource "aws_iam_role_policy" "custom-policy" {
         Action = [
           "application-autoscaling:*",
           "cloudwatch:*",
-          "ecs:*"
+          "ecs:*",
+          "elasticloadbalancing:*",
+          "secretsmanager:*",
+          "logs:*",
+          "ssm:*",
+          "iam:PassRole"
         ]
         Effect   = "Allow"
         Resource = "*"
