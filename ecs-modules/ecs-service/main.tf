@@ -7,7 +7,8 @@ resource "aws_ecs_service" "ecs_service" {
   lifecycle {
   ignore_changes = [desired_count, capacity_provider_strategy, task_definition, load_balancer] # Allow external changes to happen without Terraform conflicts, particularly around auto-scaling.
   }
-
+  
+  force_new_deployment = true
   load_balancer {
     target_group_arn = var.alb_target_group_arn
     container_name   = var.container_name
