@@ -88,10 +88,7 @@ resource "aws_iam_role_policy" "codedeploy_ecs_policy" {
       {
         Effect = "Allow",
         Action = [
-          "ecs:DescribeServices",
-          "ecs:DescribeTaskDefinition",
-          "ecs:DescribeTasks",
-          "ecs:ListTasks",
+          "ecs:*",
           "elasticloadbalancing:*",
           "iam:PassRole",
           "ec2:RunInstances",
