@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "ok_ecs_task" {
-  family                   = "${var.cust_name}-${var.ecs_family}-${var.env}-ecs-task"
+  family                   = "${var.cust_name}-${var.ecs_family}-${var.env}-ecstask"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.taskcpu
