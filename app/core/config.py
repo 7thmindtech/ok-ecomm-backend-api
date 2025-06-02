@@ -18,12 +18,12 @@ class Settings(BaseSettings):
     PORT: int = 3001
     NODE_ENV: str = "development"
     
-    # Database Settings
+    # Database Settings  This credentials should be kept secret and not hardcoded in production
     POSTGRES_HOST: str = "okyke.crwk2swcs1bq.eu-west-1.rds.amazonaws.com"
     POSTGRES_PORT: str = "5432"
     POSTGRES_DB: str = "okyke"
-    POSTGRES_USER: str = ""
-    POSTGRES_PASSWORD: str = ""
+    POSTGRES_USER: str = "okyke_admin"
+    POSTGRES_PASSWORD: str = "Okykedb!"
     DATABASE_URL: str = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
     
     # Storage Settings
