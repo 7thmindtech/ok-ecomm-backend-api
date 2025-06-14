@@ -23,14 +23,14 @@ phases:
       - terraform init -no-color
       - sed -i -e "s/{{ENV}}/$TF_VAR_ENV/" backend.tf
       - terraform init -reconfigure -no-color && terraform $TF_ACTION -no-color -var-file="config/$TF_VAR_ENV.tfvars"
-      # - echo "Building Docker image..."
-      # - docker-compose -f docker-compose-dev.yml build   
-      # - echo "Tagging Docker image..."
-      # - docker tag ecomm-backend-api:$IMAGE_TAG $TF_VAR_ACCOUNT_ID.dkr.ecr.eu-west-1.amazonaws.com/$IMAGE_REPO_NAME:ecomm-backend-api-$TF_VAR_ENV-$TF_VAR_STAGE_NAME
+      - echo "Building Docker image..."
+      - docker-compose -f docker-compose-dev.yml build   
+      - echo "Tagging Docker image..."
+      - docker tag ecomm-backend-api:$IMAGE_TAG $TF_VAR_ACCOUNT_ID.dkr.ecr.eu-west-1.amazonaws.com/$IMAGE_REPO_NAME:ecomm-backend-api-$TF_VAR_ENV-$TF_VAR_STAGE_NAME
 
   post_build:
     commands:
-      # - echo "Pushing Docker image to Amazon ECR..."
-      # - docker push $TF_VAR_ACCOUNT_ID.dkr.ecr.eu-west-1.amazonaws.com/$IMAGE_REPO_NAME:ecomm-backend-api-$TF_VAR_ENV-$TF_VAR_STAGE_NAME
-      # - echo "Image build and push action on $TF_VAR_ENV completed"
+      - echo "Pushing Docker image to Amazon ECR..."
+      - docker push $TF_VAR_ACCOUNT_ID.dkr.ecr.eu-west-1.amazonaws.com/$IMAGE_REPO_NAME:ecomm-backend-api-$TF_VAR_ENV-$TF_VAR_STAGE_NAME
+      - echo "Image build and push action on $TF_VAR_ENV completed"
       - echo "terraform $TF_ACTION on $TF_VAR_ENV completed on `date`"
