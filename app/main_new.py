@@ -36,7 +36,7 @@ if backend_dir not in sys.path:
 # Import local S3 configuration
 try:
     from local_s3 import LOCAL_STORAGE_DIR
-    USE_LOCAL_S3 = True
+    USE_LOCAL_S3 = False 
 except ImportError:
     USE_LOCAL_S3 = False
     LOCAL_STORAGE_DIR = None
@@ -89,14 +89,14 @@ async def root():
 async def health_check():
     return {"status": "healthy"}
 
-# Special endpoint for local S3 file access for compatibility
-@app.get("/local_s3/{bucket}/{file_path:path}")
-async def get_s3_file(bucket: str, file_path: str):
-    if not USE_LOCAL_S3:
-        raise HTTPException(status_code=404, detail="Local S3 storage not configured")
+# # Special endpoint for local S3 file access for compatibility
+# @app.get("/local_s3/{bucket}/{file_path:path}")
+# async def get_s3_file(bucket: str, file_path: str):
+#     if not USE_LOCAL_S3:
+#         raise HTTPException(status_code=404, detail="Local S3 storage not configured")
         
-    file_path = os.path.join(LOCAL_STORAGE_DIR, bucket, file_path)
-    if not os.path.exists(file_path) or not os.path.isfile(file_path):
-        raise HTTPException(status_code=404, detail="File not found")
+#     file_path = os.path.join(LOCAL_STORAGE_DIR, bucket, file_path)
+#     if not os.path.exists(file_path) or not os.path.isfile(file_path):
+#         raise HTTPException(status_code=404, detail="File not found")
         
-    return FileResponse(file_path) 
+#     return FileResponse(file_path) 
