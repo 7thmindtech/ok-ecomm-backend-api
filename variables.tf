@@ -72,6 +72,8 @@ variable "secret_names" {
     "DB_USERNAME",
     "DB_PASSWORD",
     "DB_NAME",
-    "DB_PORT"
+    "DB_PORT",
+    "AWS_SECRET_ACCESS_KEY",
+    "AWS_ACCESS_KEY_ID"
   ]
 }

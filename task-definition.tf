@@ -22,12 +22,22 @@ module "ok_ecomm_backend_taskdef" {
                 }
             ],
             "secrets" = local.ok_ecomm_backend_secrets,
+            "environment" = [
+                {
+                    "name": "S3_BUCKET",
+                    "value": local.alb_access_log_bucket
+                },
+                {
+                    "name": "AWS_REGION",
+                    "value": "${var.region}"
+                }
+            ],
             "logConfiguration" = {
                 "logDriver" = "awslogs",
                 "options"   = {
                     "awslogs-create-group"   = "true",
                     "awslogs-group"          = "ecs/fargate/service/${var.env}/${var.ecs_family}",
-                    "awslogs-region"         = "eu-west-1",
+                    "awslogs-region"         = "${var.region}",
                     "awslogs-stream-prefix"  = "ecs"
                 }
             }
